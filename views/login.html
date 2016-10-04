@@ -1,0 +1,12 @@
+<div layout="column" layout-align="center center" class="md-no-momentum">
+	<br>
+    <md-input-container md-no-float="" class="md-block">
+      <input ng-model="user.name" type="text" placeholder="username">
+    </md-input-container>
+
+    <md-input-container md-no-float="" class="md-block">
+      <input ng-model="user.password" type="password" placeholder="Password">
+    </md-input-container>
+  	<div><md-button class="md-raised md-primary" ng-click="validate()">Login</md-button></div>
+  	<p>{{loginFail}}</p>
+</div>

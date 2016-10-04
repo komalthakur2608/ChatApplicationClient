@@ -1,0 +1,39 @@
+<div layout="row">
+    <div flex="80">
+    	<h4>{{welcomeMsg}}</h4>
+    </div>
+    <div flex="20">
+    	<h4>Available people : </h4>
+    	<div ng-repeat='people in available_people'>
+	    	<md-card ng-click="sendRequest(people.id, people.name);">
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-subhead">{{people.name}}</span>
+		          </md-card-title-text>
+		        </md-card-title>
+		    </md-card>
+	    </div>
+
+	    <h4>Request sent : </h4>
+    	<div ng-repeat='people in sentRequestPeople'>
+	    	<md-card>
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-subhead">{{people.name}}</span>
+		          </md-card-title-text>
+		        </md-card-title>
+		    </md-card>
+	    </div>
+
+	    <h4>Request received : </h4>
+    	<div ng-repeat='people in requestReceivedPeople'>
+	    	<md-card ng-click='sendAcceptance(people.id, people.name)'>
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-subhead">{{people.name}}</span>
+		          </md-card-title-text>
+		        </md-card-title>
+		    </md-card>
+	    </div>
+    </div>
+</div>
