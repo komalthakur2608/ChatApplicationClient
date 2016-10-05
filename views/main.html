@@ -1,6 +1,28 @@
 <div layout="row">
     <div flex="80">
     	<h4>{{welcomeMsg}}</h4>
+    	<div ng-repeat='chat in chats'>
+	    	<md-card>
+	        	<form>
+	        		<div layout="row">
+			    		<div flex="90">
+			    			<h5>Chat between {{chat.id1}} and {{chat.id2}}</h5>
+			    			<md-input-container class="md-block">
+        						<input type="text" ng-model="message" placeholder="type here...">
+      						</md-input-container>
+			    		</div>
+			    		<div flex="10">
+			    			<md-button class="md-fab md-primary" type="submit" ng-click="sendMessage(chat.id1, chat.id2, message);">Send</md-button>
+			    		</div>
+		    		</div>
+	        	</form>
+	        	<md-list ng-repeat='data in chat.history'>
+	        		<md-list-item>
+			            <p>{{data.sender}} : {{data.message}}</p>
+			        </md-list-item>
+	        	</md-list>
+		    </md-card>
+	    </div>
     </div>
     <div flex="20">
     	<h4>Available people : </h4>

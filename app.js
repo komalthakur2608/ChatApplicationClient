@@ -1,4 +1,4 @@
-angular.module('chatApp', ['ngMaterial','ngMessages', 'ngRoute', 'btford.socket-io'])
+angular.module('chatApp', ['ngMaterial','ngMessages', 'ngRoute', 'btford.socket-io', 'ngStorage'])
 .config(function($mdThemingProvider, $routeProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('purple')

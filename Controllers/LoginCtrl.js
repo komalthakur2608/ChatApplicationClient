@@ -1,5 +1,5 @@
 angular.module('chatApp')
-.controller('LoginCtrl', function($scope, LoginValidation, $location) {
+.controller('LoginCtrl', function($scope, LoginValidation, $location, $localStorage) {
 
 	$scope.user = {
 		name : '',
@@ -7,8 +7,10 @@ angular.module('chatApp')
 	}
 	$scope.validate = function(){
 		var res = LoginValidation.login($scope.user).success(function(data) {
-			if(data == 'pass') {
-				$location.path('/chat/' + $scope.user.name);
+			console.log("data : " + JSON.stringify(data));
+			if(data.status == 'pass') {
+				$localStorage.token = data.token;
+				$location.path('/chat/' + $scope.user.name);	
 			}
 			else{
 				$scope.loginFail = "Invalid username or password";
